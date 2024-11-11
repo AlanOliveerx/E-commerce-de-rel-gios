@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>  
+    <nav>
+        <a href="#home">Início</a> | 
+        <a href="#services">Serviços</a> | 
+        <a href="#contact">Contato</a>
+    </nav>
+
+    <section id="home" class="banner">
+        <img src="https://bergersonjoias.vteximg.com.br/arquivos/ids/284848/montblanc_lp_relogios_1920x600.jpg?v=638415300686300000" alt="Imagem do Banner">
+        <div class="banner-text">
+            <h1>Bem-vindo a Top Relógios!</h1>
+            <p>A hora certa para você brilhar.</p>
+        </div>
+    </section>
+
+    <section class="main-content">
+        <h2>Sobre Nós</h2>
+        <p>Na Top Relógios, nosso compromisso é ajudar você a encontrar o relógio perfeito, que reflita seu estilo e acompanhe seus momentos. Desde nossa fundação, temos a missão de oferecer uma experiência de compra excepcional, com uma seleção cuidadosa de relógios de marcas reconhecidas e de alta qualidade.</p>
+    </section>
+
+    <section class="promo">
+        <h2>Promoções e Novidades</h2>
+        <div class="promo-items">
+            <h3>Ofertas Exclusivas</h3>
+            <p>Aproveite descontos imperdíveis em modelos selecionados! Nossa promoção atual traz até 30% de desconto em relógios de marcas renomadas. Confira nossa seleção e atualize seu estilo com um novo relógio.</p>
+            <h3>Descontos de Temporada</h3>
+            <p>Fique atento às nossas promoções sazonais, como Black Friday, Natal e Dia dos Pais, para garantir preços especiais e condições exclusivas.</p>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Nossos Serviços</h2>
+        <div class="service-list">
+            <div class="service-item">
+                <h3>Manutenção e Reparos</h3>
+                <p>Nossa equipe de especialistas realiza serviços de manutenção para garantir que seu relógio esteja sempre funcionando com precisão. Desde troca de bateria até reparos mais complexos, cuidamos do seu relógio com atenção aos detalhes.</p>
+                <p>Preço: R$ 50</p>
+            </div>
+            <div class="service-item">
+                <h3>Avaliação e Compra de Relógios Usados</h3>
+                <p>Compramos relógios usados de clientes que desejam uma atualização ou que têm peças de valor para venda. Nossos especialistas em avaliação oferecem preços justos e transparentes.</p>
+                <p>Preço: Sujeito a análise!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Entre em Contato</h2>
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="phone">Telefone:</label>
+            <input type="tel" id="phone" name="phone" required>
+            
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3654.6333048992715!2d-46.71427362548375!3d-23.65329986497477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce51aaf11432ad%3A0x4578b756c7a1a2e7!2sUNINOVE%20-%20Campus%20Santo%20Amaro!5e0!3m2!1spt-BR!2sbr!4v1731286414542!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <p>Entre em Contato: (11) 99754-1069</p>
+    </section>
+
+    <footer>
+        <p>Siga-nos nas redes sociais</p>
+        <div class="social-links">
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> | 
+            <a href="https://www.instagram.com" target="_blank">Instagram</a> | 
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetElement.offsetTop - 50,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const backToTopButton = document.createElement('button');
+        backToTopButton.textContent = 'Voltar ao Topo';
+        backToTopButton.style.position = 'fixed';
+        backToTopButton.style.bottom = '20px';
+        backToTopButton.style.right = '20px';
+        backToTopButton.style.padding = '10px 20px';
+        backToTopButton.style.fontSize = '16px';
+        backToTopButton.style.backgroundColor = '#222';
+        backToTopButton.style.color = '#fff';
+        backToTopButton.style.border = 'none';
+        backToTopButton.style.borderRadius = '5px';
+        backToTopButton.style.cursor = 'pointer';
+        backToTopButton.style.display = 'none';
+        document.body.appendChild(backToTopButton);
+
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 200) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
